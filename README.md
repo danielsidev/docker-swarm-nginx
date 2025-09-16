@@ -22,7 +22,7 @@ When you define the port in your docker-compose.yml (like this- ports: -"80:80")
 With Docker and Docker Compose installed, make this:
 
 ```
- docker swarm init --advertise-addr $MEU_IP
+ docker swarm init --advertise-addr $MY_IP
 ```
 >  Your machine's IP can be get with command: ifconfig or ip addr.
 
@@ -34,7 +34,7 @@ To add worker at the cluster: In the terminal from worker, paste generated comma
 
 
 ```
-docker swarm join --token $TOKEN $MEU_IP
+docker swarm join --token $TOKEN $MY_IP
 ```
 
 ### Create a Network between Nginx and Apps 
