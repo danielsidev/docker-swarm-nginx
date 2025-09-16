@@ -160,7 +160,17 @@ docker stack services nginx_stack
 ```
 ### Scaling Services
 
+> Structure:
+
+- $STACK_NAME=nginx_stack
+
+- $SERVICE_NAME=nginx
+
+* example: docker service scale **$STACK_NAME** _ **$SERVICE_NAME**=3
+
 #### Increase Replicas
+
+
 
 ```
  docker service scale nginx_stack_nginx=5 
