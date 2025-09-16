@@ -13,9 +13,9 @@ services:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
       - ./nginx/sites/:/etc/nginx/sites/:ro
     networks:
-      - meu-projeto-network
+      - my-project-network-name
     restart: always
 
 networks:
-  meu-projeto-network:
+  my-project-network-name:
     external: true
