@@ -14,7 +14,7 @@ When you define the port in your docker-compose.yml (like this- ports: -"80:80")
 
 * 2 - When a request arrives in aby node in the port 80, the load balancer forwards to any one replics from Nginx that are runing in your overlay network.  
 
->  Swarm make a inteligent layer, distributing requests to port 80 and any replic avilable in your service, ensuring resilience and high availability.
+>  **Swarm make a inteligent layer, distributing requests to port 80 and any replic avilable in your service, ensuring resilience and high availability. It's allows configure N replicas, CPU unit and memory resources. And it's allows scaling the services.**
 
 
 ### Start Docker Swarm 
@@ -62,7 +62,7 @@ To start Nginx, browser to project's root folder and execute:
 
 
 ```
-docker stack deploy -c docker-compose.yml nginx-stack
+docker stack deploy -c docker-compose.yml nginx_stack
 ```
 
 ### Reload Nginx while keeping online services 
@@ -71,13 +71,13 @@ docker stack deploy -c docker-compose.yml nginx-stack
 
 
 ```
-docker stack deploy -c docker-compose.yml nginx-stack
+docker stack deploy -c docker-compose.yml nginx_stack
 ```
 
 ### Configure your projects with Docker Swarm 
 
 ```
-docker stack deploy -c docker-compose.yml site1-stack
+docker stack deploy -c docker-compose.yml site1_stack
 ```
 ---
 
@@ -145,6 +145,31 @@ networks:
 ```
 
 ```
-docker stack deploy -c docker-compose.yml site2-stack
+docker stack deploy -c docker-compose.yml site2_stack
+```
+### List Docker Swarm Services
+> show number of services:
+
+```
+docker stack ls
+```
+> show the services
+
+```
+docker stack services nginx_stack
+```
+### Scaling Services
+
+#### Increase Replicas
+
+```
+ docker service scale nginx_stack_nginx=5 
+ 
 ```
 
+#### Decrease Replicas
+
+```
+ docker service scale nginx_stack_nginx=1 
+ 
+```
